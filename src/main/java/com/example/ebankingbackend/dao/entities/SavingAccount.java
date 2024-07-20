@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-//@DiscriminatorValue("SA")
+@DiscriminatorValue("SA")
 //THE PREVIOUS ANNOTATION IS USED WHEN INHERITANCE TYPE EQUALS SINGLE_TABLE
 @Data
 @NoArgsConstructor
