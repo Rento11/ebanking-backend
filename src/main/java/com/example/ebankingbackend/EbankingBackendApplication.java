@@ -10,6 +10,7 @@ import com.example.ebankingbackend.exceptions.BalanceNotSufficientException;
 import com.example.ebankingbackend.exceptions.BankAccountNotFoundException;
 import com.example.ebankingbackend.exceptions.CustomerNotFoundException;
 import com.example.ebankingbackend.service.BankAccountService;
+import com.example.ebankingbackend.service.dtos.CustomerDTO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,10 +32,10 @@ public class EbankingBackendApplication {
     CommandLineRunner commandLineRunner(BankAccountService bankAccountService) {
         return args -> {
             Stream.of("Hassan", "Imane", "Mohamed").forEach(name -> {
-                Customer customer = new Customer();
-                customer.setName(name);
-                customer.setEmail(name + "@gmail.com");
-                bankAccountService.saveCustomer(customer);
+                CustomerDTO customerDTO = new CustomerDTO();
+                customerDTO.setName(name);
+                customerDTO.setEmail(name + "@gmail.com");
+                bankAccountService.saveCustomer(customerDTO);
             });
             bankAccountService.listCustomers().forEach(customer -> {
                 try {
